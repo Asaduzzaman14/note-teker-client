@@ -10,7 +10,7 @@ const customStyles = {
   width: "80px",
 };
 
-const NoteCard = ({ note }) => {
+const NoteCard = ({ note, handleDelete }) => {
 
 
   return (
@@ -22,7 +22,7 @@ const NoteCard = ({ note }) => {
         >
           <p className="text-center p-2  fs-2 fw-bold text-dark">
             {" "}
-            {note.user_name.substring(0, 1)}
+            {note?.user_name?.substring(0, 1)}
           </p>
         </div>
         <div className="card-body mt-5">
@@ -31,15 +31,10 @@ const NoteCard = ({ note }) => {
         </div>
         <div className="card-footer d-flex justify-content-center">
           <div>
-            <button
-              className="color-801336 btn btn-sm mx-2 "
-              
-            >
-              delete
-            </button>
+            <button onClick={() => handleDelete(note._id)} className="color-801336 btn btn-sm mx-2 " > delete</button>
           </div>
           {/* <button>update</button> */}
-          <UpdateModal  />
+          <UpdateModal />
         </div>
       </div>
     </div>
